@@ -1,3 +1,12 @@
+'''
+USAGE
+
+python3 make_video_slower.py
+	[--input|-i <path_to_input_video>]
+	[--output|-o <path_to_output_video>]
+	[--fps|-f <_FPS_no> (default 3.0)]
+'''
+
 # import the necessary packages
 import numpy as np
 import argparse
