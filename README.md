@@ -10,6 +10,7 @@ They are for running the YOLO algorithm on single image and video (webcam by def
 The `cfg` folder contains the YOLO 2 weights and configs, as well as their tiny versions.
 
 ## Usage
+
 ### Video
 ```
 python3 yolo_video.py
