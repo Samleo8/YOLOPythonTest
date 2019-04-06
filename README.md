@@ -12,6 +12,7 @@ The `cfg` folder contains the YOLO 2 weights and configs, as well as their tiny 
 ## Usage
 
 ### Video
+
 ```
 python3 yolo_video.py
 	[--input|-i <video_file> (default: webcam)] [--output|-o <video_file>] [--cfg|-g <cfg_folder>]
@@ -21,11 +22,22 @@ python3 yolo_video.py
 ```
 
 ### Image (Single)
+
 ```
 python3 yolo_image.py
 	[--input|-i <image_file>] [--output|-o <video_file>] [--cfg|-g <cfg_folder>]
 	[--confidence|-c <min_confidence> (default: 0.5)] [--threshold|-t <threshold_nms> (default: 0.3)]
 	[--yoloVersion|-y (2 | 3 | 3-tiny) (default: 3)]
+```
+
+### Make video slower
+As the output file from running `yolo_video.py` is very fast, I made a python script to also slow down the output:
+
+```
+python3 make_video_slower.py
+	[--input|-i <path_to_input_video>]
+	[--output|-o <path_to_output_video>]
+	[--fps|-f <_FPS_no> (default 3.0)]
 ```
 
 ## Dependencies/Setup
