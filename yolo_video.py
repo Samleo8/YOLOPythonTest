@@ -2,7 +2,8 @@
 USAGE
 
 python3 yolo_video.py
-	[--input|-i <video_file> (default: webcam)] [--output|-o <video_file>] [--cfg|-g <cfg_folder>]
+	[--input|-i <video_file> (default: webcam)] [--output|-o <video_file>(include name but not extension; saved as mp4)]
+	[--cfg|-g <cfg_folder> (default: cfg)]
 	[--confidence|-c <min_confidence> (default: 0.5)] [--threshold|-t <threshold_nms> (default: 0.3)]
 	[--fast|-f] [-s|--scaleRatio <video_scale_down_factor_for_faster_detection>]
 	[--yoloVersion|-y (2 | 3 | 3-tiny) (default: 2)]
@@ -20,8 +21,8 @@ import os
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--input", default=0,
 	help="path to input video")
-ap.add_argument("-o", "--output", default="output",
-	help="path to output video")
+ap.add_argument("-o", "--output", default="videos/output",
+	help="path to output video (include name but not extension: it will be saved as mp4)")
 ap.add_argument("-c", "--confidence", type=float, default=0.5,
 	help="minimum probability to filter weak detections")
 ap.add_argument("-t", "--threshold", type=float, default=0.3,
@@ -181,8 +182,8 @@ while True:
 	# check if the video writer is None
 	if writer is None:
 		# initialize our video writer
-		fourcc = cv2.VideoWriter_fourcc(*"MJPG")
-		writer = cv2.VideoWriter(args["output"]+".avi", fourcc, 15.0,
+		fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+		writer = cv2.VideoWriter(args["output"]+".mp4", fourcc, 15.0,
 			(_frame.shape[1], _frame.shape[0]), True)
 
 		# some information on processing single frame
@@ -198,9 +199,8 @@ while True:
 	# write the output frame to disk
 	writer.write(_frame)
 
-	if video_path == 0:
-		cv2.putText(_frame, "Q/Esc to Quit", (W-130, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
-		cv2.imshow("YOLO Detection",_frame)
+	cv2.putText(_frame, "Q/Esc to Quit", (W-130, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+	cv2.imshow("YOLOv"+args["yoloVersion"]+" Detection",_frame)
 
 	key = cv2.waitKey(1) & 0xFF
 	if key == ord('q') or key == 27 or grabbed==False: #esc or 'Q'
