@@ -6,3 +6,4 @@ videos/pedestrians.avi filter=lfs diff=lfs merge=lfs -text
 videos/pedestrians_yolo2.mp4 filter=lfs diff=lfs merge=lfs -text
 videos/pedestrians_yolo3.mp4 filter=lfs diff=lfs merge=lfs -text
 videos/pedestrians_yolo3-tiny.mp4 filter=lfs diff=lfs merge=lfs -text
+videos/pedestrians_yolo2-tiny.mp4 filter=lfs diff=lfs merge=lfs -text
