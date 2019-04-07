@@ -50,15 +50,27 @@ python3 make_video_slower.py
 - argparse
 
 
+## Testing against Oxford Town Centre dataset
+I tested YOLO versions 2 and 3 (and their tiny versions) against the Oxford Town Center dataset (truncated):
+
+```
+YOLO VERSION						v2		v3		v2(tiny)						v3(tiny)
+
+Avg. Processing Time/Frame [sec]	0.25	0.65	0.05							0.05
+
+Avg. Accuracy						<5%		~90%	~15% (many false detections)	<10% (many false detections, worse than v2 tiny)
+```
+
 ### Hardware Used
-- ASUS Laptop (i7-8550, quad core), Ubuntu 18.10.
+- ASUS Zenbook Laptop (i7-8550, quad core), Ubuntu 18.10.
 - Nvidia GeForce MX150 GPU (2GB), CUDA 10.1, with CUDNN
 
-## Interesting Observations
+
+## General Observations
 1) In terms of speed, [YOLOv2](https://pjreddie.com/darknet/yolov2/) is almost 3 times faster than [YOLOv3](https://pjreddie.com/darknet/yolo/) (~0.15 seconds/frame vs ~0.6 seconds/frame). The difference in accuracy, however, is better than YOLOv2 (see videos/pedestrains_yolo2 -vs- 3).
 
 Of course, the YOLO2/3-tiny versions are the fastest, but also super inaccurate.
 
-2)  above, it's uncertain if the latest versions of OpenCV or dlib have GPU support now, but I actually suspect that the answer is YES.
+2) From the comments on PyImageSearch, it's uncertain if the latest versions of OpenCV or dlib have GPU support now, but I actually suspect that the answer is YES.
 
 Running YOLO2 on darknet's repo (supposed to use CUDA/GPU) gave me images processed in around 0.15 seconds. When I ran it with no GPU support, it was almost 10s. This python code gave images processed in about 0.2 seconds, so I think that GPU is supported now. (Not sure tho)
