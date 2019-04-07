@@ -55,7 +55,7 @@ python3 make_video_slower.py
 - Nvidia GeForce MX150 GPU (2GB), CUDA 10.1, with CUDNN
 
 ## Interesting Observations
-1) In terms of speed, [YOLOv2](https://pjreddie.com/darknet/yolov2/) is almost 3 times faster than [YOLOv3](https://pjreddie.com/darknet/yolo/) (~0.15 seconds/frame vs ~0.6 seconds/frame). The difference in accuracy (at least in my testing) isn't that great compared to YOLOv2, so use that if you cannot take the slow speed.
+1) In terms of speed, [YOLOv2](https://pjreddie.com/darknet/yolov2/) is almost 3 times faster than [YOLOv3](https://pjreddie.com/darknet/yolo/) (~0.15 seconds/frame vs ~0.6 seconds/frame). The difference in accuracy, however, is better than YOLOv2 (see videos/pedestrains_yolo2 -vs- 3).
 
 Of course, the YOLO2/3-tiny versions are the fastest, but also super inaccurate.
 
