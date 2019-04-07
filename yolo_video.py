@@ -165,7 +165,7 @@ while True:
 			(w, h) = (boxes[i][2], boxes[i][3])
 
 			if fasterDetect:
-				# Scale back up face locations since the frame we detected in was scaled to 1/4 size
+				# Scale back up face locations since the frame we detected in was scaled to 1/scaleRatio size
 				x *= scaleRatio
 				y *= scaleRatio
 				w *= scaleRatio
@@ -182,10 +182,14 @@ while True:
 	# check if the video writer is None
 	if writer is None:
 		# initialize our video writer
-		fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+		fourcc = 0x7634706d
 		writer = cv2.VideoWriter(args["output"]+".mp4", fourcc, 15.0,
-			(_frame.shape[1], _frame.shape[0]), True)
-
+			(_frame.shape[1], _frame.shape[0]))
+		'''
+		fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+		writer = cv2.VideoWriter(args["output"]+".avi", fourcc, 15.0,
+			(_frame.shape[1], _frame.shape[0]))
+		'''
 		# some information on processing single frame
 		if total > 0:
 			elap = (end - start)
