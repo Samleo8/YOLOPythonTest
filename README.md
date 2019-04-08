@@ -72,10 +72,24 @@ YOLO VERSION						v2		v3		v2(tiny)						v3(tiny)
 
 Avg. Processing Time/Frame [sec]	0.25	0.65	0.05							0.05
 
-Avg. Accuracy (mAP)					~20%	~90%	~15% (many false detections)	<10% (many false detections, worse than v2 tiny)
+Approx. Accuracy (mAP)				~15%	~90%	~15% (many false detections)	<10% (many false detections, worse than v2 tiny)
 ```
 
-The actual results can be found in `videos/pedestrians_yolo<version>.mp4`
+
+```
+Confidence threshold: 0.3
+Non-max Suppression threshold: 0.3
+
+YOLO VERSION						v2		v3		v2(tiny)						v3(tiny)
+
+Avg. Processing Time/Frame [sec]	0.3		0.5		0.05							0.05
+
+Approx. Accuracy (mAP)				~20%	~90%	~15% (many false detections)	<10% (many false detections, worse than v2 tiny)
+```
+
+Note that I do not have a proper benchmark to gauge the accuracy. It's done by human guest-imate.
+
+But you can see the video results can be found in `videos/thresh<confidence_threshhold>/pedestrians_yolo<version>.mp4`
 
 ### Hardware Used
 - ASUS Zenbook Laptop (i7-8550, quad core), Ubuntu 18.10
