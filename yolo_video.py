@@ -79,12 +79,13 @@ if video_path:
 	# an error occurred while trying to determine the total
 	# number of frames in the video file
 	except:
-		print("[INFO] Could not determine # of frames in video")
-		print("[INFO] No approx. completion time can be provided")
+		print("[ERROR] Could not determine # of frames in video")
+		print("[WARNING] No approx. completion time can be provided")
 		total = -1
 else:
 	total = -1
 
+frameN = 0
 # loop over frames from the video file stream
 while True:
 	# read the next frame from the file
@@ -194,7 +195,7 @@ while True:
 		if total > 0:
 			elap = (end - start)
 			print("[INFO] single frame took {:.4f} seconds".format(elap))
-			print("[INFO] estimated total time to finish: {:.4f}".format(
+			print("[INFO] estimated total time to finish: {:.4f} seconds".format(
 				elap * total))
 	else:
 		elap = (end - start)
@@ -204,13 +205,22 @@ while True:
 	writer.write(_frame)
 
 	cv2.putText(_frame, "Q/Esc to Quit", (W-130, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+	cv2.putText(_frame, "Frame: "+str(frameN), (130, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+
 	cv2.imshow("YOLOv"+args["yoloVersion"]+" Detection",_frame)
+	#cv2.imwrite("output_"+str(frameN)+".jpg",_frame)
+
+	frameN = frameN+1
 
 	key = cv2.waitKey(1) & 0xFF
-	if key == ord('q') or key == 27 or grabbed==False: #esc or 'Q'
+	if key == ord('q') or key == 27: #esc or 'Q'
+		print("[WARNING] User exited early")
+		break
+	if grabbed==False:
+		print("[INFO] No more video to grab")
 		break
 
 # release the file pointers
-print("[INFO] cleaning up...")
+print("[INFO] Cleaning up...")
 writer.release()
 vs.release()
