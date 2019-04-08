@@ -75,7 +75,7 @@ Avg. Processing Time/Frame [sec]	0.25	0.65	0.05							0.05
 Avg. Accuracy (mAP)					~20%	~90%	~15% (many false detections)	<10% (many false detections, worse than v2 tiny)
 ```
 
-The actual results can be found in `videos/pedestrains_yolo<version>.mp4`
+The actual results can be found in `videos/pedestrians_yolo<version>.mp4`
 
 ### Hardware Used
 - ASUS Zenbook Laptop (i7-8550, quad core), Ubuntu 18.10
