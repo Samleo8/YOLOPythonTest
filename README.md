@@ -40,6 +40,17 @@ python3 make_video_slower.py
 	[--fps|-f <_FPS_no> (default 3.0)]
 ```
 
+### Extract Frames from Video
+To extract a bunch of frames from a video, I have made a simple python script `extract_frames_from_video.py`:
+
+```python3 extract_frames_from_video.py
+	[--input|-i <video_file>]
+	[--output|-o <path_to_folder_to_save_batch_images>]
+	[--startFrame|-s <frame_no> (default: 0)]
+	[--endFrame|-e <frame_no> (default: end of video)]
+	[--displayFrames|-d]
+```
+
 ## Dependencies/Setup
 - OpenCV: 3.4.4
 
@@ -54,16 +65,21 @@ python3 make_video_slower.py
 I tested YOLO versions 2 and 3 (and their tiny versions) against the Oxford Town Center dataset (truncated):
 
 ```
+Confidence threshold: 0.5
+Non-max Suppression threshold: 0.3
+
 YOLO VERSION						v2		v3		v2(tiny)						v3(tiny)
 
 Avg. Processing Time/Frame [sec]	0.25	0.65	0.05							0.05
 
-Avg. Accuracy						<5%		~90%	~15% (many false detections)	<10% (many false detections, worse than v2 tiny)
+Avg. Accuracy (mAP)					~20%	~90%	~15% (many false detections)	<10% (many false detections, worse than v2 tiny)
 ```
 
+The actual results can be found in `videos/pedestrains_yolo<version>.mp4`
+
 ### Hardware Used
-- ASUS Zenbook Laptop (i7-8550, quad core), Ubuntu 18.10.
-- Nvidia GeForce MX150 GPU (2GB), CUDA 10.1, with CUDNN
+- ASUS Zenbook Laptop (i7-8550, quad core), Ubuntu 18.10
+- Nvidia GeForce MX150 GPU (2GB memory), CUDA 10.1, CUDNN 7.5.0
 
 
 ## General Observations
