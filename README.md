@@ -108,10 +108,10 @@ Running YOLO2 on darknet's repo (supposed to use CUDA/GPU) gave me images proces
 
 3) For some strange reason, the results of the YOLOv2 detection with this program is vastly different from that of the one run in the official [darknet repo](https://github.com/pjreddie/darknet).
 
-Below are the predictions, both with the **same** weights, **same** config and **same** confidence threshold (0.5).
+Below are the predictions, both with the **same** weights, **same** config and **same** confidence threshold (0.5). Both predictions are from the same frame (extractedFrames/5.jpg)[extractedFrames/5.jpg]:
 
-[Python Prediction](https://raw.githubusercontent.com/Samleo8/YOLOPythonTest/master/images/predictions_python.jpg)
+![Python Prediction](images/predictions_python.jpg?raw=true)
 _Python Prediction_
 
-[Darknet Prediction](https://raw.githubusercontent.com/Samleo8/YOLOPythonTest/master/images/predictions_darknet.jpg)
+![Darknet Prediction](images/predictions_darknet.jpg)
 _Darknet Prediction_
