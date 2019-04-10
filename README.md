@@ -110,8 +110,8 @@ Running YOLO2 on darknet's repo (supposed to use CUDA/GPU) gave me images proces
 
 Below are the predictions, both with the **same** weights, **same** config and **same** confidence threshold (0.5).
 
-[Python Prediction](images/predictions_python.jpg)
+[Python Prediction](https://raw.githubusercontent.com/Samleo8/YOLOPythonTest/master/images/predictions_python.jpg)
 _Python Prediction_
 
-[Darknet Prediction](images/predictions_darknet.jpg)
+[Darknet Prediction](https://raw.githubusercontent.com/Samleo8/YOLOPythonTest/master/images/predictions_darknet.jpg)
 _Darknet Prediction_
