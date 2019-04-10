@@ -43,7 +43,8 @@ python3 make_video_slower.py
 ### Extract Frames from Video
 To extract a bunch of frames from a video, I have made a simple python script `extract_frames_from_video.py`:
 
-```python3 extract_frames_from_video.py
+```
+python3 extract_frames_from_video.py
 	[--input|-i <video_file>]
 	[--output|-o <path_to_folder_to_save_batch_images>]
 	[--startFrame|-s <frame_no> (default: 0)]
