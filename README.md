@@ -105,3 +105,13 @@ Of course, the YOLO2/3-tiny versions are the fastest, but also super inaccurate.
 2) From the comments on PyImageSearch, it's uncertain if the latest versions of OpenCV or dlib have GPU support now, but I actually suspect that the answer is YES.
 
 Running YOLO2 on darknet's repo (supposed to use CUDA/GPU) gave me images processed in around 0.15 seconds. When I ran it with no GPU support, it was almost 10s. This python code gave images processed in about 0.2 seconds, so I think that GPU is supported now. (Not sure tho)
+
+3) For some strange reason, the results of the YOLOv2 detection with this program is vastly different from that of the one run in the official [darknet repo](https://github.com/pjreddie/darknet).
+
+Below are the predictions, both with the **same** weights, **same** config and **same** confidence threshold (0.5).
+
+[Python Prediction](images/predictions_python.jpg)
+_Python Prediction_
+
+[Darknet Prediction](images/predictions_darknet.jpg)
+_Darknet Prediction_
